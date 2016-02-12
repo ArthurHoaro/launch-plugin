@@ -1,23 +1,31 @@
 <h1>Launch Settings</h1>
 
 <form action="?do=tools" method="POST" id="launchsettings">
-  <p>
-    <label for="subtitle">Subtitle</label>
-    <input type="text" name="subtitle" id="subtitle" value="~SUBTITLE~">
-    <br>
-    <input type="checkbox" name="horizontal_menu" id="horizontal_menu" ~HORIZONTAL_CHECKED~>
-    <label for="horizontal_menu">Enable horizontal menu</label>
-    <br>
-    <input type="checkbox" name="vertical_menu" id="vertical_menu" ~VERTICAL_CHECKED~>
-    <label for="vertical_menu">Enable vertical menu</label>
-    <br>
-    <input type="checkbox" name="override_vertical" id="override_vertical" ~OVERRIDE_VERTICAL~>
-    <label for="vertical_menu">Override default vertical menu</label>
-  </p>
 
+  <h2><label for="subtitle">Subtitle</label></h2>
+  <input type="text" name="subtitle" id="subtitle" value="~SUBTITLE~">
+  <br>
+  <h2>Menus</h2>
+  <input type="checkbox" name="horizontal_menu" id="horizontal_menu" ~HORIZONTAL_CHECKED~>
+  <label for="horizontal_menu">Enable horizontal menu</label>
+  <br>
+  <input type="checkbox" name="vertical_menu" id="vertical_menu" ~VERTICAL_CHECKED~>
+  <label for="vertical_menu">Enable vertical menu</label>
+  <br>
+  <h2>Custom vertical menu</h2>
+  <input type="checkbox" name="override_vertical" id="override_vertical" ~OVERRIDE_VERTICAL~>
+  <label for="override_vertical">Override default vertical menu</label>
   <p>
-    <input type="hidden" name="launch">
-    <input type="submit" value="Save">
+    You vertical menu will be override with your custom settings:
   </p>
+  <pre>
+    <code>
+    ~CUSTOM_MENU~
+    </code>
+  </pre>
+  <br>
+
+  <input type="hidden" name="launch">
+  <input type="submit" value="Save">
 </form>
 <p>text</p>

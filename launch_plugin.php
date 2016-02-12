@@ -33,6 +33,7 @@ function hook_launch_plugin_render_includes($data)
         $GLOBALS['plugins']['LAUNCH_SUBTITLE'] = !empty($_POST['subtitle']) ? escape($_POST['subtitle']) : '';
         $GLOBALS['plugins']['LAUNCH_VERTICAL_MENU'] = !empty($_POST['vertical_menu']);
         $GLOBALS['plugins']['LAUNCH_HORIZONTAL_MENU'] = !empty($_POST['horizontal_menu']);
+        $GLOBALS['plugins']['LAUNCH_OVERRIDE_VERTICAL'] = !empty($_POST['override_vertical']);
 
         save_plugin_data();
     }
@@ -63,6 +64,12 @@ function hook_launch_plugin_render_header($data)
         $data['launch_horizontal'] = false;
     }
 
+    if (!empty($GLOBALS['plugins']['LAUNCH_OVERRIDE_VERTICAL'])
+        && !empty($GLOBALS['plugins']['LAUNCH_CUSTOM_MENU'])
+    ) {
+        $data['launch_vertical'] = $GLOBALS['plugins']['LAUNCH_CUSTOM_MENU'];
+    }
+
     return $data;
 }
 
@@ -77,9 +84,10 @@ function hook_launch_plugin_render_tools($data)
 {
     $tplVar = array(
         'SUBTITLE' => !empty($GLOBALS['plugins']['LAUNCH_SUBTITLE']) ? $GLOBALS['plugins']['LAUNCH_SUBTITLE'] : '',
-        'VERTICAL_CHECKED' => isset($GLOBALS['plugins']['LAUNCH_VERTICAL_MENU']) ? 'checked="checked"' : '',
-        'HORIZONTAL_CHECKED' => isset($GLOBALS['plugins']['LAUNCH_HORIZONTAL_MENU']) ? 'checked="checked"' : '',
-        'OVERRIDE_VERTICAL' => isset($GLOBALS['plugins']['OVERRIDE_VERTICAL']) ? 'checked="checked"' : '',
+        'VERTICAL_CHECKED' => !empty($GLOBALS['plugins']['LAUNCH_VERTICAL_MENU']) ? 'checked="checked"' : '',
+        'HORIZONTAL_CHECKED' => !empty($GLOBALS['plugins']['LAUNCH_HORIZONTAL_MENU']) ? 'checked="checked"' : '',
+        'OVERRIDE_VERTICAL' => !empty($GLOBALS['plugins']['LAUNCH_OVERRIDE_VERTICAL']) ? 'checked="checked"' : '',
+        'CUSTOM_MENU' => !empty($GLOBALS['plugins']['LAUNCH_CUSTOM_MENU']) ? var_export($GLOBALS['plugins']['LAUNCH_CUSTOM_MENU'], true) : '',
     );
     $tpl = file_get_contents(PluginManager::$PLUGINS_PATH . '/launch_plugin/tools.html');
     $tpl = replace_tpl_var($tpl, $tplVar);
@@ -119,7 +127,8 @@ function save_plugin_data() {
         'LAUNCH_SUBTITLE',
         'LAUNCH_VERTICAL_MENU',
         'LAUNCH_HORIZONTAL_MENU',
-        'OVERRIDE_VERTICAL',
+        'LAUNCH_OVERRIDE_VERTICAL',
+        'LAUNCH_CUSTOM_MENU',
     );
 
     $configStr = '<?php '. PHP_EOL;
