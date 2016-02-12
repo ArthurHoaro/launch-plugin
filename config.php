@@ -1,6 +1,5 @@
 <?php 
 $GLOBALS['plugins']['LAUNCH_SUBTITLE'] = 'Shaarli!';
-$GLOBALS['plugins']['LAUNCH_VERTICAL_MENU'] = false;
 $GLOBALS['plugins']['LAUNCH_HORIZONTAL_MENU'] = true;
 $GLOBALS['plugins']['LAUNCH_OVERRIDE_VERTICAL'] = true;
 $GLOBALS['plugins']['LAUNCH_CUSTOM_MENU'] = array (

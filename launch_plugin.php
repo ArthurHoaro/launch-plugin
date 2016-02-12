@@ -84,7 +84,6 @@ function hook_launch_plugin_render_tools($data)
 {
     $tplVar = array(
         'SUBTITLE' => !empty($GLOBALS['plugins']['LAUNCH_SUBTITLE']) ? $GLOBALS['plugins']['LAUNCH_SUBTITLE'] : '',
-        'VERTICAL_CHECKED' => !empty($GLOBALS['plugins']['LAUNCH_VERTICAL_MENU']) ? 'checked="checked"' : '',
         'HORIZONTAL_CHECKED' => !empty($GLOBALS['plugins']['LAUNCH_HORIZONTAL_MENU']) ? 'checked="checked"' : '',
         'OVERRIDE_VERTICAL' => !empty($GLOBALS['plugins']['LAUNCH_OVERRIDE_VERTICAL']) ? 'checked="checked"' : '',
         'CUSTOM_MENU' => !empty($GLOBALS['plugins']['LAUNCH_CUSTOM_MENU']) ? var_export($GLOBALS['plugins']['LAUNCH_CUSTOM_MENU'], true) : '',
