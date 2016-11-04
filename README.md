@@ -35,9 +35,12 @@ For a better display of the Tools page, put this after any plugin altering the T
 
 Enable vertical menu overriding in Shaarli `Tools` administration page. 
 
-To customize the vertical menu, in `plugins/launch-plugin/config.php`, 
-edit `$GLOBALS['plugins']['LAUNCH_CUSTOM_MENU']`.
-You can edit existing item, and add new ones.
+To customize the vertical menu, copy `plugins/launch_plugin/menu.example.json`, 
+to `plugins/launch_plugin/menu.json` and start editing the JSON file.
+
+Then reload your menu from Shaarli Tools page.
+
+You can edit existing items, and add new ones.
 
 Available icons:
 

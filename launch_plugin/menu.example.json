@@ -1,0 +1,16 @@
+[
+  {
+    "title": "links",
+    "url": "?",
+    "icon": "home"
+  },{
+    "title": "tagcloud",
+    "url": "?do=tagcloud",
+    "icon": "cloud"
+  },
+  {
+    "title": "perso",
+    "url": "http://example.io",
+    "icon": "cv"
+  }
+]
